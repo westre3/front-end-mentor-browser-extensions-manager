@@ -12,9 +12,9 @@
   --clr-neutral-0: hsl(200, 60%, 99%);
 
   /* Red colors */
-  --clr-red-400: hsl(3, 86%, 64%);
-  --clr-red-500: hsl(3, 71%, 56%);
   --clr-red-700: hsl(3, 77%, 44%);
+  --clr-red-500: hsl(3, 71%, 56%);
+  --clr-red-400: hsl(3, 86%, 64%);
 
   /* Gradients */
   --light-gradient: linear-gradient(180deg, #ebf2fc 0%, #eef8f9 100%);
@@ -63,35 +63,69 @@ ul {
 body {
   --body-background: var(--light-gradient);
   --banner-background: var(--clr-neutral-0);
-  --theme-toggle-background: var(--clr-neutral-100);
+  --banner-border-color: var(--clr-neutral-200);
+  --banner-shadow: 0 2px 2px -1px var(--clr-neutral-200);
+  --theme-toggle-background-color: var(--clr-neutral-100);
+  --theme-toggle-hover-background-color: var(--clr-neutral-300);
+  --theme-toggle-focus-background-color: var(--clr-neutral-100);
   --h1-color: var(--clr-neutral-900);
   --filter-button-background-color: var(--clr-neutral-0);
+  --filter-button-border-color: var(--clr-neutral-200);
+  --filter-button-color: var(--clr-neutral-900);
+  --filter-button-hover-background-color: var(--clr-neutral-100);
+  --filter-button-hover-color: var(--clr-neutral-600);
+  --filter-button-focus-background-color: var(--clr-neutral-0);
+  --filter-button-selected-background-color: var(--clr-red-700);
+  --filter-button-selected-color: var(--clr-neutral-0);
+  --filter-button-selected-focus-background-color: var(--clr-red-700);
+  --extension-card-background: var(--clr-neutral-0);
+  --extension-card-border-color: var(--clr-neutral-200);
+  --extension-card-shadow: 0 2px 2px -1px var(--clr-neutral-200);
+  --name-color: var(--clr-neutral-900);
+  --description-color: var(--clr-neutral-600);
+  --remove-button-border-color: var(--clr-neutral-300);
+  --remove-button-color: var(--clr-neutral-900);
+  --remove-button-hover-background-color: var(--clr-red-700);
+  --remove-button-hover-color: var(--clr-neutral-0);
+  --remove-button-focus-background-color: var(--clr-neutral-100);
+  --active-button-active-background: var(--clr-red-700);
+  --active-button-inactive-background: var(--clr-neutral-300);
+  --active-button-thumb: var(--clr-neutral-0);
+  --focus-outline-color: var(--clr-red-400);
 }
 
 body.dark-mode {
   --body-background: var(--dark-gradient);
   --banner-background: var(--clr-neutral-800);
-  --theme-toggle-background: var(--clr-neutral-700);
+  --banner-border-color: var(--clr-neutral-800);
+  --banner-shadow: none;
+  --theme-toggle-background-color: var(--clr-neutral-700);
+  --theme-toggle-hover-background-color: var(--clr-neutral-600);
+  --theme-toggle-focus-background-color: var(--clr-neutral-600);
   --h1-color: var(--clr-neutral-100);
   --filter-button-background-color: var(--clr-neutral-700);
   --filter-button-border-color: var(--clr-neutral-600);
   --filter-button-color: var(--clr-neutral-100);
+  --filter-button-hover-background-color: var(--clr-neutral-600);
+  --filter-button-hover-color: var(--clr-neutral-100);
+  --filter-button-focus-background-color: var(--clr-neutral-600);
   --filter-button-selected-background-color: var(--clr-red-500);
   --filter-button-selected-color: var(--clr-neutral-900);
   --filter-button-selected-focus-background-color: var(--clr-red-400);
   --extension-card-background: var(--clr-neutral-800);
   --extension-card-border-color: var(--clr-neutral-600);
+  --extension-card-shadow: none;
   --name-color: var(--clr-neutral-100);
   --description-color: var(--clr-neutral-300);
   --remove-button-border-color: var(--clr-neutral-600);
   --remove-button-color: var(--clr-neutral-100);
   --remove-button-hover-background-color: var(--clr-red-400);
   --remove-button-hover-color: var(--clr-neutral-900);
+  --remove-button-focus-background-color: var(--clr-neutral-600);
   --active-button-active-background: var(--clr-red-400);
   --active-button-inactive-background: var(--clr-neutral-600);
   --active-button-thumb: var(--clr-neutral-0);
   --focus-outline-color: var(--clr-red-400);
-  --focus-background-color: var(--clr-neutral-600);
 }
 
 body {
@@ -100,7 +134,7 @@ body {
 }
 
 .wrapper {
-  width: 80vw;
+  width: 90vw;
   max-width: 1200px;
   margin-inline: auto;
   margin-top: 2rem;
@@ -133,6 +167,8 @@ button:focus-visible {
 /* Banner */
 .banner {
   background-color: var(--banner-background);
+  border: 1px solid var(--banner-border-color);
+  box-shadow: var(--banner-shadow);
   width: 100%;
   padding: 0.75rem;
   margin-bottom: 4rem;
@@ -142,15 +178,18 @@ button:focus-visible {
 }
 
 .theme-toggle {
-  background-color: var(--theme-toggle-background);
+  background-color: var(--theme-toggle-background-color);
   padding: 0.75rem;
   border-radius: 8px;
   transition: background-color 100ms linear;
 }
 
-.theme-toggle:focus-visible,
+.theme-toggle:focus-visible {
+  background-color: var(--theme-toggle-focus-background-color);
+}
+
 .theme-toggle:hover {
-  background-color: var(--focus-background-color);
+  background-color: var(--theme-toggle-hover-background-color);
 }
 
 /* Grid Header */
@@ -184,19 +223,23 @@ button:focus-visible {
   margin-left: auto;
 }
 
-.filter-button.selected {
+.filter-button:focus-visible {
+  background-color: var(--filter-button-focus-background-color);
+}
+
+.filter-button:hover {
+  background-color: var(--filter-button-hover-background-color);
+  color: var(--filter-button-hover-color);
+}
+
+.filter-button[aria-current='true'] {
   background-color: var(--filter-button-selected-background-color);
   border-color: var(--filter-button-selected-background-color);
   color: var(--filter-button-selected-color);
 }
 
-.filter-button.selected:focus-visible {
+.filter-button[aria-current='true']:focus-visible {
   background-color: var(--filter-button-selected-focus-background-color);
-}
-
-.filter-button:not(.selected):focus-visible,
-.filter-button:not(.selected):hover {
-  background-color: var(--focus-background-color);
 }
 
 @media (max-width: 46.875rem) {
@@ -241,6 +284,7 @@ button:focus-visible {
   padding: 16px;
   background-color: var(--extension-card-background);
   border: 1px solid var(--extension-card-border-color);
+  box-shadow: var(--extension-card-shadow);
   border-radius: 16px;
   display: grid;
   grid-template-rows: 1fr 3fr 2fr;
@@ -290,7 +334,7 @@ button:focus-visible {
 }
 
 .remove-button:focus-visible {
-  background-color: var(--focus-background-color);
+  background-color: var(--remove-button-focus-background-color);
   border-color: var(--extension-card-background);
   outline-offset: 1px;
 }
@@ -314,4 +358,12 @@ button:focus-visible {
 
 .active .active-button {
   background-color: var(--active-button-active-background);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
 }

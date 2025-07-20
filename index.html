@@ -7,151 +7,143 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
-    <title>Frontend Mentor | Browser extensions manager UI</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <title>Browser Extensions Manager</title>
 
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
   </head>
-  <body class="dark-mode">
+  <body>
     <div class="wrapper">
-      <div class="banner">
-        <img src="assets/images/logo.svg" role="none" />
-        <button class="theme-toggle">
-          <img class="theme-toggle-icon" src="assets/images/icon-sun.svg" alt="A sun icon" />
+      <header class="banner">
+        <img class="logo" src="assets/images/logo-light.svg" role="none" />
+        <button class="theme-toggle" aria-labelledby="theme-toggle-name">
+          <img class="theme-toggle-icon" src="assets/images/icon-moon.svg" aria-hidden="true" />
+          <span id="theme-toggle-name" hidden>Toggle theme to light mode</span>
         </button>
-      </div>
-      <div class="grid-header">
-        <h1>Extensions List</h1>
-        <ul class="filters">
-          <button class="filter-button all-filter-button rounded-button selected">All</button>
-          <button class="filter-button active-filter-button rounded-button">Active</button>
-          <button class="filter-button inactive-filter-button rounded-button">Inactive</button>
-        </ul>
-      </div>
-      <div class="grid">
-        <div class="extension-card active">
-          <img src="assets/images/logo-devlens.svg" class="logo" />
-          <h2 class="name">DevLens</h2>
-          <p class="description">Quickly inspect page layouts and visualize element boundaries.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
+      </header>
+      <main>
+        <div class="grid-header">
+          <h1>Extensions List</h1>
+          <ul class="filters">
+            <button class="filter-button all-filter-button rounded-button">All</button>
+            <button class="filter-button active-filter-button rounded-button">Active</button>
+            <button class="filter-button inactive-filter-button rounded-button">Inactive</button>
+          </ul>
         </div>
-        <div class="extension-card active">
-          <img src="assets/images/logo-style-spy.svg" class="logo" />
-          <h2 class="name">StyleSpy</h2>
-          <p class="description">Instantly analyze and copy CSS from any webpage element.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
+        <div class="grid">
+          <span id="toggle-button-name-suffix" hidden>Toggle if extension is active</span>
+          <span id="remove-button-name-prefix" hidden>Remove</span>
+          <section class="extension-card active">
+            <img src="assets/images/logo-devlens.svg" class="logo" />
+            <h2 class="name" id="devlens-name">DevLens</h2>
+            <p class="description">Quickly inspect page layouts and visualize element boundaries.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix devlens-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="devlens-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card active">
+            <img src="assets/images/logo-style-spy.svg" class="logo" />
+            <h2 class="name" id="stylespy-name">StyleSpy</h2>
+            <p class="description">Instantly analyze and copy CSS from any webpage element.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix stylespy-name">Remove</button>
+              <button class="toggle-button active-button" id="stylespy-active-button-description" aria-labelledby="stylespy-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card">
+            <img src="assets/images/logo-speed-boost.svg" class="logo" />
+            <h2 class="name" id="speedboost-name">SpeedBoost</h2>
+            <p class="description">Optimizes browser resource usage to accelerate page loading.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix speedboost-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="speedboost-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card active">
+            <img src="assets/images/logo-json-wizard.svg" class="logo" />
+            <h2 class="name" id="jsonwizard-name">JSONWizard</h2>
+            <p class="description">Formats, validates, and prettifies JSON responses in-browser.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix jsonwizard-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="jsonwizard-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card active">
+            <img src="assets/images/logo-tab-master-pro.svg" class="logo" />
+            <h2 class="name" id="tabmaster-pro-name">TabMaster Pro</h2>
+            <p class="description">Organizes browser tabs into groups and sessions.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix tabmaster-pro-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="tabmaster-pro-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card">
+            <img src="assets/images/logo-viewport-buddy.svg" class="logo" />
+            <h2 class="name" id="viewport-buddy-name">ViewportBuddy</h2>
+            <p class="description">Simulates various screen resolutions directly within the browser.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix viewport-buddy-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="viewport-buddy-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card active">
+            <img src="assets/images/logo-markup-notes.svg" class="logo" />
+            <h2 class="name" id="markup-notes-name">Markup Notes</h2>
+            <p class="description">Enables annotation and notes directly onto webpages for collaborative debugging.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix markup-notes-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="markup-notes-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card">
+            <img src="assets/images/logo-grid-guides.svg" class="logo" />
+            <h2 class="name" id="gridguides-name">GridGuides</h2>
+            <p class="description">Overlay customizable grids and alignment guides on any webpage.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix gridguides-name">Remove</button>
+              <button class="toggle-button active-button" id="gridguides-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card active">
+            <img src="assets/images/logo-palette-picker.svg" class="logo" />
+            <h2 class="name" id="palette-picker-name">Palette Picker</h2>
+            <p class="description">Instantly extracts color palettes from any webpage.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix palette-picker-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="palette-picker-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card active">
+            <img src="assets/images/logo-link-checker.svg" class="logo" />
+            <h2 class="name" id="linkchecker-name">LinkChecker</h2>
+            <p class="description">Scans and highlights broken links on any page.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix linkchecker-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="linkchecker-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card">
+            <img src="assets/images/logo-dom-snapshot.svg" class="logo" />
+            <h2 class="name" id="dom-snapshot-name">DOM Snapshot</h2>
+            <p class="description">Capture and export DOM structures quickly.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix dom-snapshot-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="dom-snapshot-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
+          <section class="extension-card active">
+            <img src="assets/images/logo-console-plus.svg" class="logo" />
+            <h2 class="name" id="consoleplus-name">ConsolePlus</h2>
+            <p class="description">Enhanced developer console with advanced filtering and logging.</p>
+            <div class="buttons">
+              <button class="rounded-button remove-button" aria-labelledby="remove-button-name-prefix consoleplus-name">Remove</button>
+              <button class="toggle-button active-button" aria-labelledby="consoleplus-name toggle-button-name-suffix"></button>
+            </div>
+          </section>
         </div>
-        <div class="extension-card">
-          <img src="assets/images/logo-speed-boost.svg" class="logo" />
-          <h2 class="name">SpeedBoost</h2>
-          <p class="description">Optimizes browser resource usage to accelerate page loading.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card active">
-          <img src="assets/images/logo-json-wizard.svg" class="logo" />
-          <h2 class="name">JSONWizard</h2>
-          <p class="description">Formats, validates, and prettifies JSON responses in-browser.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card active">
-          <img src="assets/images/logo-tab-master-pro.svg" class="logo" />
-          <h2 class="name">TabMaster Pro</h2>
-          <p class="description">Organizes browser tabs into groups and sessions.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card">
-          <img src="assets/images/logo-viewport-buddy.svg" class="logo" />
-          <h2 class="name">ViewportBuddy</h2>
-          <p class="description">Simulates various screen resolutions directly within the browser.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card active">
-          <img src="assets/images/logo-markup-notes.svg" class="logo" />
-          <h2 class="name">Markup Notes</h2>
-          <p class="description">Enables annotation and notes directly onto webpages for collaborative debugging.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card">
-          <img src="assets/images/logo-grid-guides.svg" class="logo" />
-          <h2 class="name">GridGuides</h2>
-          <p class="description">Overlay customizable grids and alignment guides on any webpage.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card active">
-          <img src="assets/images/logo-palette-picker.svg" class="logo" />
-          <h2 class="name">Palette Picker</h2>
-          <p class="description">Instantly extracts color palettes from any webpage.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card active">
-          <img src="assets/images/logo-link-checker.svg" class="logo" />
-          <h2 class="name">LinkChecker</h2>
-          <p class="description">Scans and highlights broken links on any page.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card">
-          <img src="assets/images/logo-dom-snapshot.svg" class="logo" />
-          <h2 class="name">DOM Snapshot</h2>
-          <p class="description">Capture and export DOM structures quickly.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-        <div class="extension-card active">
-          <img src="assets/images/logo-console-plus.svg" class="logo" />
-          <h2 class="name">ConsolePlus</h2>
-          <p class="description">Enhanced developer console with advanced filtering and logging.</p>
-          <div class="buttons">
-            <button class="rounded-button remove-button">Remove</button>
-            <button class="toggle-button active-button"></button>
-          </div>
-        </div>
-      </div>
+      </main>
     </div>
-
-    <!-- If you plan to use the JSON file to populate the data dynamically, you can delete the content below -->
 
     <div class="attribution">Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by <a href="#">Trey West</a>.</div>
   </body>
